@@ -1,0 +1,11 @@
+.top-header {
+    width: 100%;
+    height: 90px;
+    background-color: black;
+}
+
+.left-container{
+    border-right: solid 1px grey;
+    text-align: center;
+    padding-top: 100px;
+}

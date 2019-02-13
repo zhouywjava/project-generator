@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration status="INFO" monitorInterval="30">
+    <appenders>
+        <console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} %t [%p] %c{1} (%F:%L) %msg%n" />
+        </console>
+    </appenders>
+
+    <appenders>
+        <RollingFile name="RollingFileLog" fileName="/usr/local/template-gen/logs/generator.log"
+                     filePattern="/usr/local/template-gen/logs/generator-%d{yyyy-MM-dd}-%i.log">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} %t [%p] %c{1} (%F:%L) %msg%n" />
+            <Policies>
+                <TimeBasedTriggeringPolicy/>
+                <SizeBasedTriggeringPolicy size="100 MB"/>
+            </Policies>
+        </RollingFile>
+    </appenders>
+
+    <!--<loggers>-->
+        <!--<logger name="org.springframework" level="INFO"/>-->
+        <!--<logger name="org.mybatis" level="INFO"/>-->
+        <!--<root level="INFO">-->
+            <!--<appender-ref ref="Console"/>-->
+        <!--</root>-->
+    <!--</loggers>-->
+    <loggers>
+        <logger name="org.springframework" level="INFO" />
+        <logger name="org.mybatis" level="INFO" />
+        <root level="info">
+            <appender-ref ref="RollingFileLog"/>
+        </root>
+    </loggers>
+</configuration>
